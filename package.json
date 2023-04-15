@@ -1,0 +1,27 @@
+{
+  "name": "final",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.301.0",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/material": "^5.11.14",
+    "aws-sdk": "^2.1345.0",
+    "chatgpt": "^5.1.3",
+    "convert-audio": "^1.0.1",
+    "elevenlabs-api": "^1.0.6",
+    "next": "13.2.4",
+    "openai": "^3.2.1",
+    "react": "^18.2.0",
+    "react-dom": "18.2.0",
+    "react-s3": "^1.3.1",
+    "twilio": "^4.9.0"
+  }
+}
