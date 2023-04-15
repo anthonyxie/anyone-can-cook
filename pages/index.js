@@ -14,12 +14,8 @@ import ExampleText from '../components/ExampleText'
 //to be rewritten and stuff later but idc atm
 
 export default function Home() {
-  const [alignment, setAlignment] = useState("");
 
-  const handleToggleChange = (
-    event, newAlignment ) => {
-    setAlignment(newAlignment);
-  };
+
   return (
     <>
       <Head>
@@ -29,23 +25,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <div style={{display: "flex", flexDirection: "column"}}>
-        <h1 style={{color: 'black'}}>What would you like to make today?</h1>
-        <ToggleButtonGroup
-          color="primary"
-          value={alignment}
-          exclusive
-          onChange={handleToggleChange}
-          aria-label="Platform"
-        >
-          <ToggleButton value="Text">Write me something!</ToggleButton>
-          <ToggleButton value="Image">Make me an image!</ToggleButton>
-          <ToggleButton value="Video">Make me a video!</ToggleButton>
-        </ToggleButtonGroup>
-          {alignment == "Video" && <ImageInput></ImageInput>}
-          {alignment == "Text" && <TextInput></TextInput>}
-          {alignment == "Image" && <ImageOutput></ImageOutput>}
-        </div>
       </main>
     </>
   )
