@@ -274,3 +274,8 @@
     transform: rotate(0deg);
   }
 }
+
+.input {
+  margin-top:-50px;
+  margin-bottom: 50px;
+}

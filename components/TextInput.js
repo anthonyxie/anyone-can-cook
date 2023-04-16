@@ -29,7 +29,7 @@ const TextInput = ({ placeholder, onSend }) => {
         value={text}
         onChange={handleChange}
         style={{
-          width: '100%',
+          width: '500px',
           height: '40px',
           padding: '10px',
           boxSizing: 'border-box',
