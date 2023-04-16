@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.css'
 import TextInput from '@/components/TextInput'
 import MainImage from '../components/MainImage'
 import ChatBubble from '../components/ChatBubble'
+import ChatWindow from '../components/ChatWindow'
 import {
   useCallback,
   useEffect,
@@ -45,6 +46,9 @@ export default function Home() {
         <div className={styles.input}>
         <TextInput placeholder="enter your text here" />
         </div>
+        <p className={styles.description}>
+          <code className={styles.code}>tired of instant ramen, ubereats, and dining hall food? colette is here to help you meal prep and cook delicious meals at home!</code>
+        </p>
       </main>
     </>
   )
