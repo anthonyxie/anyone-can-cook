@@ -11,7 +11,6 @@ import {
 } from 'react';
 const inter = Inter({ subsets: ['latin'] })
 import { useQuery } from 'react-query';
-import TextInput from '../components/TextInput';
 
 //to be rewritten and stuff later but idc atm
 
@@ -39,7 +38,7 @@ export default function Home() {
         <MainImage src="./images/main.png" alt="main" />
 
         <div className={styles.chat}>
-        <ChatBubble placeholder="enter your text here" />
+        <ChatBubble msg={"pp"}/>
         </div>
 
         <div className={styles.input}>
