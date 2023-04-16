@@ -5,12 +5,12 @@ const RecipeMenu = ({userId}) => {
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   const items = [
-    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_ramen.png', recipe: recipes.ramen },
-    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_steak.png', recipe: recipes.steak },
-    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_sushi.png', recipe: recipes.sushi },
-    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_cake.png', recipe: recipes.sushi },
-    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_hamburger.png', recipe: recipes.hamburger },
-    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_friedrice.png', recipe: recipes.friedrice },
+    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_ramen.png' },
+    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_steak.png'},
+    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_sushi.png'},
+    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_cake.png'},
+    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_hamburger.png' },
+    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_friedrice.png' },
 ];
 
 return (
@@ -57,9 +57,7 @@ return (
 		  </div>
 		))}
 	  </div>
-	{selectedRecipe && (
-	<RecipeModal onClose={handleCloseModal} recipe={selectedRecipe} />
-  )}
+	)}
 </div>
 );
 };
