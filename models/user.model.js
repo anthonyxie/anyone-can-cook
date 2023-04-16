@@ -5,7 +5,11 @@ const UserSchema = new Schema( {
     messages: [{
         type: Schema.Types.ObjectId,
         ref: "Message"
+    }],
+    recipes: [{
+        type: Schema.Types.ObjectId,
+        ref: "Recipe"       
     }]
 });
 
-export default models.User || model('User', UserSchema)
+export default models.User || model('User', UserSchema); 

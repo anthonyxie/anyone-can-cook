@@ -68,9 +68,10 @@ export default function Home() {
             {userId && <ChatBubble userId={userId} sendDisabled={sendDisabled} setSendDisabled={setSendDisabled}/>}
           </div>
           {userId && <ListWindow userId={userId} />}
-          <div className={styles.recipes}>
-            <RecipeMenu></RecipeMenu>
-          </div>
+          {userId && <div className={styles.recipes}>
+            <RecipeMenu userId={userId}></RecipeMenu>
+          </div>}
+
           
           <div className={styles.input}>
             {userId && <TextInput placeholder="enter your message here" userId={userId} sendDisabled={sendDisabled} setSendDisabled={setSendDisabled} />}
