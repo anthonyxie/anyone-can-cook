@@ -1,8 +1,8 @@
 import ENV from '../config.env';
 
-export async function sendMessage( message ){
+export async function sendMessage( userId ){
 
-    if(!message) throw new Error("Invalid arguments");
+    if(!userId) throw new Error("Invalid arguments");
 
     console.log("uhhhhh going?");
 
@@ -11,7 +11,7 @@ export async function sendMessage( message ){
         headers : {
             'Content-Type': 'application/json'
         },
-        body : JSON.stringify({ message : message })        
+        body : JSON.stringify({ userId : userId })        
     })).json();
 
     if(!success) throw new Error('Error sending message');

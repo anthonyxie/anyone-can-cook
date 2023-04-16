@@ -16,10 +16,9 @@ const TextInput = ({ placeholder, userId }) => {
   };
 
   const { isLoading, isError, data: messages, error } = useQuery(['messages', userId], () => getMessages(userId));
-
   const queryclient = useQueryClient();
 
-  const mutation = useMutation(({userId, message}) => {
+  const mutation = useMutation(async ({userId, message}) => {
       return addNewMessage(userId, message);
   }, {
       onSuccess : () => {
@@ -27,20 +26,10 @@ const TextInput = ({ placeholder, userId }) => {
       }
   })
 
-  
-
-
   async function handleSend(event) {
-    /**
-    if (text.trim() === '') {
-      console.log('no text entered');
-    } else {
-      if (onSend) {
-        onSend(text);
-      }
-      setText('');
+    const delay = (delayInms) => {
+        return new Promise(resolve => setTimeout(resolve, delayInms));
     }
-    */
     let message = {role: "user", content: text};
     /**
     let add = await addNewMessage(userId, message);
@@ -49,11 +38,11 @@ const TextInput = ({ placeholder, userId }) => {
     let add2 = await addNewMessage(userId, res.data);
     */
     let add = mutation.mutate({userId: userId, message: message});
-    let res = await sendMessage(text);
+    let wow = await delay(1500);
+    let res = await sendMessage(userId);
     setText("");
     let add2 = mutation.mutate({userId: userId, message: res.data});
   };
-
  
 
   return (

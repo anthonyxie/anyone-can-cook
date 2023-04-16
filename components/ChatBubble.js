@@ -7,8 +7,9 @@ const ChatBubble = ({userId}) => {
     const [msg, setMsg] = useState("...");
     const { isLoading, isError, data: messages, error } = useQuery(['messages', userId], () => getMessages(userId));
 
+
+
     useEffect(() => {
-        console.log(messages);
         if (messages) {
             const m = messages[messages.length - 1];
             if (m) {
@@ -26,10 +27,11 @@ const ChatBubble = ({userId}) => {
         console.log("UserId has changed in component");
     }, [userId])
     return (
-        <div>
-            {
+        <div >
+            <p style={{color: 'black', fontSize: '3'}}>            {
                 msg
-            }
+            }</p>
+
         </div>
     );
 }

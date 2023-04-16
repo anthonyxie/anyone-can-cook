@@ -17,22 +17,22 @@ import { useQuery } from 'react-query';
 //to be rewritten and stuff later but idc atm
 
 export default function Home() {
-  const [userId, setUserId ] = useState('643b527180b139e592b03f09');
+  const [userId, setUserId ] = useState('');
 
   //begin by making a new User for MongoDB. 
-  /**
+
   useEffect(() => {
-    (async () => {
+    console.log("USING THE EFFECT");
+    const data = async () => {
       const res = await createUser();
       setUserId(res.data._id);
-    })();
+    };
 
-
+    data();
   }, []);
-  */
 
   useEffect(() => {
-    console.log(userId);
+
   }, [userId])
 
   return (
@@ -60,7 +60,7 @@ export default function Home() {
           </div>
           
           <div className={styles.input}>
-          <TextInput placeholder="enter your message here" userId={userId}  />
+            {userId && <TextInput placeholder="enter your message here" userId={userId}  />}
           </div>
       </main>
     </>
