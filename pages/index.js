@@ -36,6 +36,9 @@ export default function Home() {
     };
 
     data();
+    const audio = document.getElementsByTagName('audio')[0];
+    audio.play();
+  
   }, []);
 
   useEffect(() => {
@@ -57,11 +60,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <audio src={"/ost.mp3"} autoPlay loop />
         <h1 className={styles.title}>
           anyone can cook!
         </h1>
         <div className={styles.gameWindow}>
+          <audio src={"/ost2.mp3"} autoPlay loop />
         
           <MainImage src="./images/main.png" alt="main" />
       
