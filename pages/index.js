@@ -37,14 +37,14 @@ export default function Home() {
         
         <MainImage src="./images/main.png" alt="main" />
 
-        <div className={styles.chat}>
-          <ChatBubble msg="oh you're a cook? okay then name every food" />
-        </div>
-        
+          <div className={styles.chat}>
+            <ChatBubble msg="oh you're a cook? okay then name every food" />
+          </div>
+          
+          <div className={styles.input}>
+          <TextInput placeholder="enter your message here" />
+          </div>
 
-        <div className={styles.input}>
-        <TextInput placeholder="enter your text here" />
-        </div>
       </main>
     </>
   )
