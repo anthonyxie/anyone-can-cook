@@ -23,11 +23,12 @@ const Splitter = ({msg, sendDisabled, setSendDisabled}) => {
       }
     }
   
-    if (groupLength > 0) {
+    if (groupLength > 0 && group.trim().length > 0) {
       groups.push(group);
     }
-  
-    return groups;
+
+
+    return groups.filter(str => str.trim().length > 0);
   }
 
   const [sentences, setSentences] = useState([]);

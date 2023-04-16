@@ -14,11 +14,11 @@ const RecipeMenu = ({userId}) => {
 
   const items = [
     { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_ramen.png' },
-    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_steak.png'},
-    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_sushi.png'},
     { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_cake.png'},
-    { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_hamburger.png' },
     { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_friedrice.png' },
+	{ imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_sushi.png'},
+	{ imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_hamburger.png' },
+	{ imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_steak.png'},
 ];
 
 return (
@@ -59,8 +59,20 @@ return (
               height: '80%',
               objectFit: 'cover',
             }}
-          />
-        </div>
+          	/>
+
+			<div className="recipe-text">
+				<h1>
+					{recipes[selectedRecipe].name}
+				</h1>
+				{recipes[selectedRecipe].steps.map((step, index) => {
+					return (
+						<p key={index}>{step}</p>
+					);
+				})}
+
+			</div>
+		</div>
       )}
 
 	{isExpanded && (
@@ -84,19 +96,12 @@ return (
 					setSelectedRecipe(index);
 					setIsExpanded(false);
 				}}
-				src={item.imgSrc}
+				src={items[index].imgSrc}
 				style={{
 					border: selectedRecipe === index ? '4px solid pink' : '4px solid white',
 					borderRadius: '10px',
 				}}
 				/>
-				{selectedRecipe === index && (
-					<div>
-						<p>
-							{item.name}
-						</p>
-					</div>
-				)}
 		  </div>
 		))}
 	  </div>
