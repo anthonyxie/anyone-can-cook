@@ -68,7 +68,7 @@ const Splitter = ({msg, sendDisabled, setSendDisabled}) => {
   return (
 	<div>
     <p style={{color: 'black', fontSize: 24}}>{sentences[index]}</p>
-	  <button className={styles.button2} style={index != sentences.length - 1 ? {position: 'absolute', bottom: '5%', left:'95%', height: '26px', paddingTop: 0, paddingBottom: 7, paddingLeft: 4, paddingRight: 4} : {display: 'none'}} onClick={handleClick}>▼</button>
+	  <button className={styles.button2} style={index != sentences.length - 1 ? {position: 'absolute', bottom: '5%', left:'95%', background: 'white', border: '2px solid black', height: '30px', paddingTop: 4, paddingBottom: 0, paddingLeft: 2, paddingRight: 2} : {display: 'none'}} onClick={handleClick}><img src='/images/arrow.gif'></img></button>
 	</div>
   );
 }

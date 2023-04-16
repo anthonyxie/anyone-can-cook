@@ -28,11 +28,12 @@ return (
 	alignItems: 'left',
 	zIndex: '1',
 	position: 'absolute',
-	top: '0',
-	left: '15%',
+	top: '-2%',
+	left: '12%',
   }}>
 	<button onClick={() => setIsExpanded(!isExpanded)} style={{
-	border: '2px solid white',
+	border: '2px solid pink',
+	background: 'white',
 	borderRadius: '10px',
 	padding: '7px 10px',
 	width: '110px',
@@ -42,9 +43,24 @@ return (
 	</button>
 
     {selectedRecipe !== null && !isExpanded && (
-        <div className="selected-recipe" style={{ width: '100%' }}>
-          <img src={items[selectedRecipe].imgSrc} style={{ width: '100%' }} onClick={() => {
+        <div className="selected-recipe" style={{ width: '120%', height: '120%' }}>
+          <img src={items[selectedRecipe].imgSrc} style={{ width: '100%', borderRadius: '20px', border: '5px solid black' }} onClick={() => {
 					setSelectedRecipe(null);}}/>
+		  <img
+            src={'images/overlay.png'}
+            alt="overlay"
+            style={{
+			  padding: '10px',
+			  marginLeft: '45%',
+              position:'absolute',
+              bottom: '0',
+			  left: '0',
+              width: '80%',
+              height: '80%',
+              objectFit: 'cover',
+              /* Additional styles for the overlay image */
+            }}
+          />
         </div>
       )}
 
