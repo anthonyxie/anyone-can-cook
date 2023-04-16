@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useQuery, useQueryClient, useMutation } from 'react-query';
+import styles from '@/styles/Home.module.css';
 import { getMessages, sendMessage, addMessage, addNewMessage } from "@/utils/request";
 import { MessagePage } from 'twilio/lib/rest/api/v2010/account/message';
 import { fontSize } from '@mui/system';
@@ -65,7 +66,7 @@ const ListWindow = ({userId}) => {
     }, [messages]);
 
     return (
-        <div className={!isListActive ? 'noList' : 'list'} style={{
+        <div className={!isListActive ? 'noList' : styles.list} style={{
             fontSize: '16px',
           }}>
 

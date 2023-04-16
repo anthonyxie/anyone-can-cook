@@ -1,8 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useQuery, useQueryClient, useMutation } from 'react-query';
+import { getRecipes } from "@/utils/request";
 
 const RecipeMenu = ({userId}) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
+  const { isLoading, isError, data: recipes, error } = useQuery(['recipes', userId], () => getRecipes(userId));
+
+  useEffect(() => {
+	console.log(recipes);
+
+  }, [recipes]);
 
   const items = [
     { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_ramen.png' },
@@ -71,6 +79,8 @@ return (
 		))}
 	  </div>
 	)}
+	<div>
+	</div>
 </div>
 );
 };

@@ -43,7 +43,7 @@ const Splitter = ({msg, sendDisabled, setSendDisabled}) => {
     setIndex(0);
     setSentences(divideSentences(msg, 98));
     //at last line bc there's only one
-    if (divideSentences(msg, 98).length == 1) {
+    if (divideSentences(msg, 98).length == 1 && divideSentences(msg, 98)[0] != "...") {
       setSendDisabled(false);
     }
     else {

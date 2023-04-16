@@ -8,6 +8,7 @@ export async function createUser(req, res) {
         const defaultUser = {
             name: "User2",
             messages: [],
+            recipes: [],
         }
         console.log(defaultUser);
 

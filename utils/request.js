@@ -43,7 +43,7 @@ export async function getMessages(userId) {
         //body : JSON.stringify({ userId : userId })        
     })).json();
 
-    if(!success) throw new Error('Error sending message');
+    if(!success) throw new Error('Error getting message');
     return data;
 }
 
@@ -74,4 +74,29 @@ export async function createUser() {
     if(!success) throw new Error('Error creating new user');
     return { success , data };
     
+}
+
+export async function createRecipe(userId, name, steps) {
+    const { success, data } = await (await fetch(`${ENV.BASE_URL}/recipes`, {
+        method : 'POST',
+        headers : {
+            'Content-Type': 'application/json'
+        }, 
+        body : JSON.stringify({ userId : userId, name: name, steps: steps})      
+    })).json(); 
+
+    if(!success) throw new Error('Error creating recipe');
+    return {success, data};  
+}
+
+export async function getRecipes(userId) {
+    const { success, data } = await (await fetch(`${ENV.BASE_URL}/recipes/${userId}`, {
+        method : 'GET',
+        headers : {
+            'Content-Type': 'application/json'
+        },       
+    })).json();  
+
+    if(!success) throw new Error('Error getting recipes');
+    return data;
 }
