@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useQuery, useQueryClient, useMutation } from 'react-query';
+import { getMessages, sendMessage, addMessage, addNewMessage } from "@/utils/request";
 
-const TextInput = ({ placeholder, onSend }) => {
+const TextInput = ({ placeholder }) => {
+
+
   const containerStyle = {
   display: 'flex',
   alignItems: 'flex-start',
@@ -10,8 +14,23 @@ const TextInput = ({ placeholder, onSend }) => {
   const handleChange = (e) => {
     setText(e.target.value);
   };
+  const userId = '643b3c1307292b3c1e22d2cc';
 
-  const handleSend = () => {
+  const { isLoading, isError, data: messages, error } = useQuery(['messages', userId], () => getMessages(userId));
+
+  const queryclient = useQueryClient();
+
+  const mutation = useMutation(({userId, message}) => {
+      return addNewMessage(userId, message);
+  }, {
+      onSuccess : () => {
+          queryclient.invalidateQueries('messages')
+      }
+  })
+
+
+  async function handleSend(event) {
+    /**
     if (text.trim() === '') {
       console.log('no text entered');
     } else {
@@ -20,6 +39,18 @@ const TextInput = ({ placeholder, onSend }) => {
       }
       setText('');
     }
+    */
+    let message = {role: "user", content: text};
+    /**
+    let add = await addNewMessage(userId, message);
+    let res = await sendMessage(text);
+    setText("");
+    let add2 = await addNewMessage(userId, res.data);
+    */
+    let add = mutation.mutate({userId: userId, message});
+    let res = await sendMessage(text);
+    setText("");
+    let add2 = mutation.mutate({userId: userId, message: res.data});
   };
 
   return (

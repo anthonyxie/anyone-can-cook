@@ -4,6 +4,7 @@ import styles from '@/styles/Home.module.css'
 import TextInput from '@/components/TextInput'
 import MainImage from '../components/MainImage'
 import ChatBubble from '../components/ChatBubble'
+import ChatWindow from '../components/ChatWindow'
 import {
   useCallback,
   useEffect,
