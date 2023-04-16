@@ -29,21 +29,23 @@ const TextInput = ({ placeholder, onSend }) => {
         value={text}
         onChange={handleChange}
         style={{
-          width: '500px',
-          height: '40px',
-          padding: '10px',
-          boxSizing: 'border-box',
+          borderRadius: '10px',
+          padding: '7px 10px',
           fontSize: '16px',
-          resize: 'none',
+          width: '100%',
+          height: '40px',
+          border: '2px solid grey',
         }}
       />
       <button
         onClick={handleSend}
         style={{
-          borderRadius: '5px',
+          borderRadius: '10px',
           padding: '7px 10px',
           fontSize: '16px',
           cursor:'pointer',
+          backgroundColor: 'pink',
+          border: '1px solid black',
         }}
       >
         ⬆

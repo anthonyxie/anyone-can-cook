@@ -276,6 +276,21 @@
 }
 
 .input {
+  width: 70%;
   margin-top:-50px;
-  margin-bottom: 50px;
+  margin-bottom: -35px;
+  padding: '10px';
+  font-size: '16px';
+}
+
+.chat {
+  padding: 10px 20px;
+  width: 70%;
+  height: 100px;
+  font-size: 30px;
+  margin-top: -160px;
+  margin-bottom: 60px;
+  background-color: whitesmoke;
+  border: 5px solid pink;
+  border-radius: 10px;
 }

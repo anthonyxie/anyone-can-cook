@@ -37,12 +37,14 @@ export default function Home() {
         
         <MainImage src="./images/main.png" alt="main" />
 
+        <div className={styles.chat}>
+          <ChatBubble msg="oh you're a cook? okay then name every food" />
+        </div>
+        
+
         <div className={styles.input}>
         <TextInput placeholder="enter your text here" />
         </div>
-        <p className={styles.description}>
-          <code className={styles.code}>tired of instant ramen, ubereats, and dining hall food? colette is here to help you meal prep and cook delicious meals at home!</code>
-        </p>
       </main>
     </>
   )
