@@ -159,15 +159,25 @@ h1 {
 
 button {
   background-color: pink;
-  color: white;
-  font-size: 12px;
+  color: black;
+  font-size: 20px;
   border-radius: 10px;
   padding-left: 10px;
   padding-right: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  font-family: Dongle;
+  font-weight: bold;
 }
 
+.button2 {
+  background-color: pink;
+  color: black;
+  font-size: 10px;
+  border-radius: 10px;
+  font-family: Dongle;
+  font-weight: bold; 
+}
 .disabled {
   opacity: 0.5;
   cursor: not-allowed;

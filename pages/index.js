@@ -20,6 +20,11 @@ import RecipeMenu from '@/components/RecipeMenu'
 
 export default function Home() {
   const [userId, setUserId ] = useState('');
+  const [sendDisabled, setSendDisabled] = useState(true);
+
+  useEffect(() => {
+    console.log("sendDisabled is", sendDisabled);
+  }, [sendDisabled])
 
   //begin by making a new User for MongoDB. 
 
@@ -60,17 +65,15 @@ export default function Home() {
           <MainImage src="./images/main.png" alt="main" />
       
           <div className={styles.chat}>
-            {userId && <ChatBubble userId={userId} />}
+            {userId && <ChatBubble userId={userId} sendDisabled={sendDisabled} setSendDisabled={setSendDisabled}/>}
           </div>
-          <div className={styles.list}>
-            {userId && <ListWindow userId={userId} />}
-          </div>
+          {userId && <ListWindow userId={userId} />}
           <div className={styles.recipes}>
             <RecipeMenu></RecipeMenu>
           </div>
           
           <div className={styles.input}>
-            {userId && <TextInput placeholder="enter your message here" userId={userId}  />}
+            {userId && <TextInput placeholder="enter your message here" userId={userId} sendDisabled={sendDisabled} setSendDisabled={setSendDisabled} />}
           </div>
 
         </div>

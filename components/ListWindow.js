@@ -21,11 +21,11 @@ const ListWindow = ({userId}) => {
 
     const { isLoading, isError, data: messages, error } = useQuery(['messages', userId], () => getMessages(userId));
     const TEST1A = false;
-    const TEST2A = "";
+    const TEST2A = [];
     const TEST1B = true;
     const TEST2B = "1. 8 oz pasta (spaghetti or fettuccine) 2. 2 cups sliced mushrooms 3. 2 tbsp butter 4. 3 garlic cloves, minced 5. 1 cup heavy cream 6. 1/2 cup grated parmesan cheese 7. Salt and pepper, to taste";
-    const [isListActive, setListActive] = useState(TEST1B);
-    const [list, setList] = useState(formatList(TEST2B));
+    const [isListActive, setListActive] = useState(TEST1A);
+    const [list, setList] = useState(TEST2A);
 
 
     function getListMarkers(sentence) {
@@ -68,6 +68,10 @@ const ListWindow = ({userId}) => {
         <div className={!isListActive ? 'noList' : 'list'} style={{
             fontSize: '16px',
           }}>
+
+            <div>
+                <p style={{fontSize: '20px', color: 'black'}}>Ingredient List</p>
+            </div>
             {list && list.map((item, index) => {
                 let s = (index + 1) + ". " + item;
                 return (

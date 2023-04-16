@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useQuery, useQueryClient, useMutation } from 'react-query';
 import { getMessages, sendMessage, addMessage, addNewMessage } from "@/utils/request";
 
-const TextInput = ({ placeholder, userId }) => {
+const TextInput = ({ placeholder, userId, sendDisabled, setSendDisabled}) => {
 
 
   const containerStyle = {
@@ -10,7 +10,6 @@ const TextInput = ({ placeholder, userId }) => {
   alignItems: 'flex-start',
 	};
   const [text, setText] = useState('');
-  const [disabled, setDisabled] = useState(false);
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -38,14 +37,14 @@ const TextInput = ({ placeholder, userId }) => {
     setText("");
     let add2 = await addNewMessage(userId, res.data);
     */
-    setDisabled(true);
+    setSendDisabled(true);
     setText("");
     let add = mutation.mutate({userId: userId, message: message});
     let wow = await delay(1500);
     let res = await sendMessage(userId);
     
     let add2 = mutation.mutate({userId: userId, message: res.data});
-    setDisabled(false);
+    setSendDisabled(false);
 
   };
  
@@ -60,17 +59,17 @@ const TextInput = ({ placeholder, userId }) => {
           borderRadius: '10px',
           padding: '7px 10px',
           fontSize: '16px',
-          width: '95%',
+          width: '93%',
           height: '40px',
           border: '2px solid grey',
         }}
       />
-      <div style={{width: '5%', height: '40px'}}>
+      <div style={{width: '5%', height: '40px', display:'flex'}}>
       <button
-        className={disabled ? 'disabled' : 'button'}
+        className={sendDisabled ? 'disabled' : 'button'}
         onClick={handleSend}
       >
-        ⬆
+        Send
       </button>
       </div>
     </div>

@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useQuery, useQueryClient, useMutation } from 'react-query';
 import { getMessages, sendMessage, addMessage, addNewMessage, sendTextMessage } from "@/utils/request";
+import Splitter from './Splitter';
 
-const ChatBubble = ({userId}) => {
+const ChatBubble = ({userId, sendDisabled, setSendDisabled}) => {
 
     const [msg, setMsg] = useState("...");
     const { isLoading, isError, data: messages, error } = useQuery(['messages', userId], () => getMessages(userId));
 
     function removeMarkers(sentence) {
-        const regex = /\[(textmsg|phone)\].*?\[\/(textmsg|phone)\]/g;
+        const regex = /\[(textmsg|phone|list)\].*?\[\/(textmsg|phone|list)\]/g;
         return sentence.replace(regex, "");
       }
 
     function getTextMarkers(sentence) {
-        const regex = /\[textmsg\](.*?)\[\/textmsg\]/g;
+        const regex = /\[text\](.*?)\[\/text\]/g;
         const matches = [];
         let match;
         while ((match = regex.exec(sentence))) {
@@ -65,9 +66,8 @@ const ChatBubble = ({userId}) => {
     }, [userId])
     return (
         <div >
-            <p style={{color: 'black', fontSize: '3'}}>            {
-                msg
-            }</p>
+            
+            <Splitter msg={msg} sendDisabled={sendDisabled} setSendDisabled={setSendDisabled} />
 
         </div>
     );
