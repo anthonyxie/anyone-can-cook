@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery, useQueryClient, useMutation } from 'react-query';
 import { getMessages, sendMessage, addMessage, addNewMessage } from "@/utils/request";
 
-const TextInput = ({ placeholder }) => {
+const TextInput = ({ placeholder, userId }) => {
 
 
   const containerStyle = {
@@ -14,7 +14,6 @@ const TextInput = ({ placeholder }) => {
   const handleChange = (e) => {
     setText(e.target.value);
   };
-  const userId = '643b3c1307292b3c1e22d2cc';
 
   const { isLoading, isError, data: messages, error } = useQuery(['messages', userId], () => getMessages(userId));
 

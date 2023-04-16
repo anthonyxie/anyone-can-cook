@@ -62,3 +62,15 @@ export async function addNewMessage(userId, message) {
     if(!success) throw new Error('Error sending message');
     return { success , data };
 }
+
+export async function createUser() {
+    const { success, data } = await (await fetch(`${ENV.BASE_URL}/user`, {
+        method : 'POST',
+        headers : {
+            'Content-Type': 'application/json'
+        },       
+    })).json();   
+    if(!success) throw new Error('Error creating new user');
+    return { success , data };
+    
+}

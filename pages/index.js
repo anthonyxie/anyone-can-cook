@@ -10,13 +10,24 @@ import {
   useEffect,
   useState,
 } from 'react';
+import { getMessages, sendMessage, addMessage, addNewMessage, createUser } from "@/utils/request";
 const inter = Inter({ subsets: ['latin'] })
 import { useQuery } from 'react-query';
 
 //to be rewritten and stuff later but idc atm
 
 export default function Home() {
-  const [userId, setUserId ] = useState('643b3c1307292b3c1e22d2cc');
+  const [userId, setUserId ] = useState('');
+
+  //begin by making a new User for MongoDB. 
+  useEffect(() => {
+    (async () => {
+      const res = await createUser();
+      setUserId(res.data._id);
+    })();
+
+
+  }, []);
 
   return (
     <>
