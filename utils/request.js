@@ -49,7 +49,8 @@ export async function getMessages(userId) {
 
 export async function addNewMessage(userId, message) {
     if(!userId || !message) throw new Error("Invalid arguments");
-    console.log(userId, message)
+    console.log(userId, message);
+    console.log("ADDING THIS NEW MESSAGE TO DA DB");
 
     const { success, data } = await (await fetch(`${ENV.BASE_URL}/messages`, {
         method : 'POST',
