@@ -192,3 +192,15 @@ img {
   height: 90%;
   object-fit: cover;
 }
+.list {
+  bottom: 50%;
+  left: 65%;
+  width: 20%;
+  padding: 10px 20px;
+  height: 40%;
+  font-size: 24px;
+  background-color: whitesmoke;
+  border: 5px solid pink;
+  border-radius: 10px;
+  position: absolute;
+}
