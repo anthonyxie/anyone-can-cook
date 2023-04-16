@@ -27,11 +27,19 @@ return (
 	border: '2px solid white',
 	borderRadius: '10px',
 	padding: '7px 10px',
-	width: '100px',
+	width: '110px',
   }}>
   		My Recipes
 	  {isExpanded ? ' ↑ ' : ' ↓ '}
 	</button>
+
+    {selectedRecipe !== null && !isExpanded && (
+        <div className="selected-recipe" style={{ width: '100%' }}>
+          <img src={items[selectedRecipe].imgSrc} style={{ width: '100%' }} onClick={() => {
+					setSelectedRecipe(null);}}/>
+        </div>
+      )}
+
 	{isExpanded && (
 	  <div className="grid-container" style={{
 		display: 'grid',
@@ -48,12 +56,17 @@ return (
 			justifyContent: 'center',
 			alignItems: 'center',
 		  }}>
-			<a href={item.link}>
-			  <img src={item.imgSrc} style={{
-			border: '4px solid white',
-			borderRadius: '10px',
-		  }}/>
-			</a>
+			  <img
+				onClick={() => {
+					setSelectedRecipe(index);
+					setIsExpanded(false);
+				}}
+				src={item.imgSrc}
+				style={{
+					border: selectedRecipe === index ? '4px solid pink' : '4px solid white',
+					borderRadius: '10px',
+				}}
+				/>
 		  </div>
 		))}
 	  </div>
