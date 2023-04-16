@@ -5,6 +5,7 @@ import TextInput from '@/components/TextInput'
 import MainImage from '../components/MainImage'
 import ChatBubble from '../components/ChatBubble'
 import ChatWindow from '../components/ChatWindow'
+import ListWindow from '../components/ListWindow'
 import {
   useCallback,
   useEffect,
@@ -52,16 +53,24 @@ export default function Home() {
         <h1 className={styles.title}>
           anyone can cook!
         </h1>
-        
-        <MainImage src="./images/main.png" alt="main" />
-
+        <div className={styles.gameWindow}>
+          <MainImage src="./images/main.png" alt="main" />
+      
           <div className={styles.chat}>
             {userId && <ChatBubble userId={userId} />}
+          </div>
+          <div className={styles.list}>
+            {userId && <ListWindow userId={userId} />}
           </div>
           
           <div className={styles.input}>
             {userId && <TextInput placeholder="enter your message here" userId={userId}  />}
           </div>
+
+
+
+          
+        </div>
       </main>
     </>
   )

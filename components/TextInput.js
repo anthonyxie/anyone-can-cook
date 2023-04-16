@@ -10,6 +10,7 @@ const TextInput = ({ placeholder, userId }) => {
   alignItems: 'flex-start',
 	};
   const [text, setText] = useState('');
+  const [disabled, setDisabled] = useState(false);
 
   const handleChange = (e) => {
     setText(e.target.value);
@@ -37,11 +38,15 @@ const TextInput = ({ placeholder, userId }) => {
     setText("");
     let add2 = await addNewMessage(userId, res.data);
     */
+    setDisabled(true);
+    setText("");
     let add = mutation.mutate({userId: userId, message: message});
     let wow = await delay(1500);
     let res = await sendMessage(userId);
-    setText("");
+    
     let add2 = mutation.mutate({userId: userId, message: res.data});
+    setDisabled(false);
+
   };
  
 
@@ -55,24 +60,19 @@ const TextInput = ({ placeholder, userId }) => {
           borderRadius: '10px',
           padding: '7px 10px',
           fontSize: '16px',
-          width: '100%',
+          width: '95%',
           height: '40px',
           border: '2px solid grey',
         }}
       />
+      <div style={{width: '5%', height: '40px'}}>
       <button
+        className={disabled ? 'disabled' : 'button'}
         onClick={handleSend}
-        style={{
-          borderRadius: '10px',
-          padding: '7px 10px',
-          fontSize: '16px',
-          cursor:'pointer',
-          backgroundColor: 'pink',
-          border: '1px solid black',
-        }}
       >
         ⬆
       </button>
+      </div>
     </div>
   );
 };

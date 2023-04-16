@@ -156,9 +156,25 @@ h1 {
   color:rgba(244, 140, 180, 100)
 }
 
+
 button {
   background-color: pink;
   color: white;
+  font-size: 12px;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.noList {
+  display: none;
 }
 
 img {
