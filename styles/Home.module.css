@@ -332,6 +332,12 @@
   cursor: not-allowed;
 }
 
+.recipes {
+  margin-top: 300px;
+  width: 100px;
+  height: 100px;
+  z-index: 1;
+}
 /**
 .send-button {
 

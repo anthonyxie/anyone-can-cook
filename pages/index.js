@@ -14,6 +14,7 @@ import {
 import { getMessages, sendMessage, addMessage, addNewMessage, createUser } from "@/utils/request";
 const inter = Inter({ subsets: ['latin'] })
 import { useQuery } from 'react-query';
+import RecipeMenu from '@/components/RecipeMenu'
 
 //to be rewritten and stuff later but idc atm
 
@@ -55,6 +56,7 @@ export default function Home() {
           anyone can cook!
         </h1>
         <div className={styles.gameWindow}>
+        
           <MainImage src="./images/main.png" alt="main" />
       
           <div className={styles.chat}>
@@ -63,15 +65,16 @@ export default function Home() {
           <div className={styles.list}>
             {userId && <ListWindow userId={userId} />}
           </div>
+          <div className={styles.recipes}>
+            <RecipeMenu></RecipeMenu>
+          </div>
           
           <div className={styles.input}>
             {userId && <TextInput placeholder="enter your message here" userId={userId}  />}
           </div>
 
-
-
-          
         </div>
+
       </main>
     </>
   )
