@@ -24,6 +24,8 @@ export default function Home() {
 
   useEffect(() => {
     console.log("sendDisabled is", sendDisabled);
+    const audio = document.getElementsByTagName('audio')[0];
+    audio.play();
   }, [sendDisabled])
 
   //begin by making a new User for MongoDB. 
@@ -36,8 +38,6 @@ export default function Home() {
     };
 
     data();
-    const audio = document.getElementsByTagName('audio')[0];
-    audio.play();
   
   }, []);
 
