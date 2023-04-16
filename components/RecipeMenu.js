@@ -61,13 +61,28 @@ return (
             }}
           	/>
 
-			<div className="recipe-text">
-				<h1>
+			<div className="recipe-text" style={{
+				position:'absolute',
+				border: '2px solid pink',
+				background: 'white',
+				borderRadius: '10px',
+				top: '10%',
+				left: '124%',
+				display: 'flex',
+				flexDirection: 'column',
+				width: '90%',
+				height: '80%',
+				paddingTop: 100,
+				paddingLeft: 20,
+				paddingRight: 20,
+
+			}}>
+				<h1 style={{position: 'relative'}}>
 					{recipes[selectedRecipe].name}
 				</h1>
 				{recipes[selectedRecipe].steps.map((step, index) => {
 					return (
-						<p key={index}>{step}</p>
+						<p style={{color: 'black'}} key={index}>{step}</p>
 					);
 				})}
 
