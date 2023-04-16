@@ -26,9 +26,13 @@ export async function addMessage(req, res) {
 //return all messages associated with a particular userId
 export async function returnAllMessages(req, res) {
     //const { userId } = req.body
-    const userId = "643b3c1307292b3c1e22d2cc";
+    console.log("INSIDE BODY");
+    const { userid } = req.query;
+    console.log(req.query);
     try {
-        const messages = await Message.find({ user : userId });
+        console.log(userid);
+        const messages = await Message.find({ user : userid });
+        console.log(messages);
         return res.status(200).json({success: true, data: messages})
     } catch (error) {
         return res.status(400).json({error})

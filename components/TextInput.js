@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery, useQueryClient, useMutation } from 'react-query';
 import { getMessages, sendMessage, addMessage, addNewMessage } from "@/utils/request";
 
@@ -27,6 +27,8 @@ const TextInput = ({ placeholder, userId }) => {
       }
   })
 
+  
+
 
   async function handleSend(event) {
     /**
@@ -46,11 +48,13 @@ const TextInput = ({ placeholder, userId }) => {
     setText("");
     let add2 = await addNewMessage(userId, res.data);
     */
-    let add = mutation.mutate({userId: userId, message});
+    let add = mutation.mutate({userId: userId, message: message});
     let res = await sendMessage(text);
     setText("");
     let add2 = mutation.mutate({userId: userId, message: res.data});
   };
+
+ 
 
   return (
     <div style={containerStyle}>

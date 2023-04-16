@@ -9,17 +9,13 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: "Cannot connect to database" });
     }
     switch(req.method){
-        case 'GET':
-            console.log("WAHHHHGHG MESSAGE");
-            await returnAllMessages(req, res);
-            break;
         case 'POST':
             console.log("AHHHHHHH MESSAGE");
             await addMessage(req, res);
             break;
         default:
             console.log("BAAAAAA");
-            res.setHeader('Allow', ['GET','POST']);
+            res.setHeader('Allow', ['POST']);
             res.status(400).json({ error : `Method ${req.method} not allowed`});
             break;
     }

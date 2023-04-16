@@ -35,7 +35,7 @@ export async function sendTextMessage(message, number) {
 export async function getMessages(userId) {
     if(!userId) throw new Error("Invalid arguments");
 
-    const { success, data } = await (await fetch(`${ENV.BASE_URL}/messages`, {
+    const { success, data } = await (await fetch(`${ENV.BASE_URL}/messages/${userId}`, {
         method : 'GET',
         headers : {
             'Content-Type': 'application/json'

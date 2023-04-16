@@ -17,9 +17,10 @@ import { useQuery } from 'react-query';
 //to be rewritten and stuff later but idc atm
 
 export default function Home() {
-  const [userId, setUserId ] = useState('');
+  const [userId, setUserId ] = useState('643b527180b139e592b03f09');
 
   //begin by making a new User for MongoDB. 
+  /**
   useEffect(() => {
     (async () => {
       const res = await createUser();
@@ -28,6 +29,11 @@ export default function Home() {
 
 
   }, []);
+  */
+
+  useEffect(() => {
+    console.log(userId);
+  }, [userId])
 
   return (
     <>
@@ -50,13 +56,12 @@ export default function Home() {
         <MainImage src="./images/main.png" alt="main" />
 
           <div className={styles.chat}>
-            <ChatBubble msg="oh you're a cook? okay then name every food" />
+            {userId && <ChatBubble userId={userId} />}
           </div>
           
           <div className={styles.input}>
-          <TextInput placeholder="enter your message here" />
+          <TextInput placeholder="enter your message here" userId={userId}  />
           </div>
-
       </main>
     </>
   )
