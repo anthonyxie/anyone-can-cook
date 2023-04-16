@@ -31,3 +31,34 @@ export async function sendTextMessage(message, number) {
     if(!success) throw new Error('Error sending message');
     return { success , data };
 }
+
+export async function getMessages(userId) {
+    if(!userId) throw new Error("Invalid arguments");
+
+    const { success, data } = await (await fetch(`${ENV.BASE_URL}/messages`, {
+        method : 'GET',
+        headers : {
+            'Content-Type': 'application/json'
+        },
+        //body : JSON.stringify({ userId : userId })        
+    })).json();
+
+    if(!success) throw new Error('Error sending message');
+    return data;
+}
+
+export async function addNewMessage(userId, message) {
+    if(!userId || !message) throw new Error("Invalid arguments");
+    console.log(userId, message)
+
+    const { success, data } = await (await fetch(`${ENV.BASE_URL}/messages`, {
+        method : 'POST',
+        headers : {
+            'Content-Type': 'application/json'
+        },
+        body : JSON.stringify({ userId : userId, message: message })        
+    })).json();
+
+    if(!success) throw new Error('Error sending message');
+    return { success , data };
+}

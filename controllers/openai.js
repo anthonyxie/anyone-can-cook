@@ -28,6 +28,8 @@ export async function createMessage(req, res) {
         Before providing any instructions for the first time, you must provide the user with a list of measured out ingredients. When providing instructions, you provide one step at a time and wait for the user to let you know when they are ready for the next step.`}],
     });
 
+    console.log(completion.data.choices[0].message);
+
 
     return res.status(200).json({ success : true, data: completion.data.choices[0].message})
 

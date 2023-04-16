@@ -10,13 +10,13 @@ import {
   useState,
 } from 'react';
 const inter = Inter({ subsets: ['latin'] })
-// import ImageInput from '../components/ImageInput'
-// import ExampleText from '../components/ExampleText'
+import { useQuery } from 'react-query';
+import TextInput from '../components/TextInput';
 
 //to be rewritten and stuff later but idc atm
 
 export default function Home() {
-
+  const [userId, setUserId ] = useState('643b3c1307292b3c1e22d2cc');
 
   return (
     <>
