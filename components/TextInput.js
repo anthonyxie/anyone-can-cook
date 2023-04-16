@@ -62,6 +62,7 @@ const TextInput = ({ placeholder, userId, sendDisabled, setSendDisabled}) => {
           width: '93%',
           height: '40px',
           border: '2px solid grey',
+          marginRight: '10px',
         }}
       />
       <div style={{width: '5%', height: '40px', display:'flex'}}>

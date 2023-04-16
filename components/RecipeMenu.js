@@ -58,7 +58,6 @@ return (
               width: '80%',
               height: '80%',
               objectFit: 'cover',
-              /* Additional styles for the overlay image */
             }}
           />
         </div>
@@ -72,7 +71,7 @@ return (
 		gridgap: '10px',
 		marginTop: '10px'
 	  }}>
-		{items.map((item, index) => (
+		{recipes && recipes.map((item, index) => (
 		  <div key={index} className="grid-item" style={{
 			width: '120px',
 			height: '120px',
@@ -91,12 +90,17 @@ return (
 					borderRadius: '10px',
 				}}
 				/>
+				{selectedRecipe === index && (
+					<div>
+						<p>
+							{item.name}
+						</p>
+					</div>
+				)}
 		  </div>
 		))}
 	  </div>
 	)}
-	<div>
-	</div>
 </div>
 );
 };
