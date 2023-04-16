@@ -42,17 +42,16 @@ const ChatBubble = ({userId}) => {
                     }
                     else {
                         let weh = getPhoneMarkers(m.content);
-                        if (weh == "") {
+                        if (weh.length == 0) {
                             setMsg(removeMarkers(m.content));
                         }
                         else {
-                            let phone = "+1"+ getPhoneMarkers(m.content);
-                            let text = getTextMarkers(m.content);
+                            let phone = "+1"+ weh[0];
+                            let text = getTextMarkers(m.content)[0];
                             let sending = sendTextMessage(text, phone);
                             setMsg(removeMarkers(m.content));
                         }
-                    }
-                    
+                    }      
                 }
                 else {
                     setMsg("...");
