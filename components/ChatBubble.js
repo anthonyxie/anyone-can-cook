@@ -8,12 +8,12 @@ const ChatBubble = ({userId}) => {
     const { isLoading, isError, data: messages, error } = useQuery(['messages', userId], () => getMessages(userId));
 
     function removeMarkers(sentence) {
-        const regex = /\[(text|phone)\].*?\[\/(text|phone)\]/g;
+        const regex = /\[(textmsg|phone)\].*?\[\/(textmsg|phone)\]/g;
         return sentence.replace(regex, "");
       }
 
     function getTextMarkers(sentence) {
-        const regex = /\[text\](.*?)\[\/text\]/g;
+        const regex = /\[textmsg\](.*?)\[\/textmsg\]/g;
         const matches = [];
         let match;
         while ((match = regex.exec(sentence))) {
