@@ -31,3 +31,4 @@ config.env.js
 
 # vercel
 .vercel
+utils/cook.zip
