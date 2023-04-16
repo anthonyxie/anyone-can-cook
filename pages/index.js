@@ -14,7 +14,7 @@ import {
 import { getMessages, sendMessage, addMessage, addNewMessage, createUser } from "@/utils/request";
 const inter = Inter({ subsets: ['latin'] })
 import { useQuery } from 'react-query';
-import RecipeMenu from '@/components/RecipeMenu'
+import RecipeMenu from '@/components/RecipeMenu';
 
 //to be rewritten and stuff later but idc atm
 
@@ -57,6 +57,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <audio src={"/ost.mp3"} autoPlay loop />
         <h1 className={styles.title}>
           anyone can cook!
         </h1>
