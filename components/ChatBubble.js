@@ -8,7 +8,7 @@ const ChatBubble = ({userId}) => {
     const { isLoading, isError, data: messages, error } = useQuery(['messages', userId], () => getMessages(userId));
 
     function removeMarkers(sentence) {
-        const regex = /\[(text|phone)\].*?\[\/(text|phone)\]/g;
+        const regex = /\[(text|phone|list)\].*?\[\/(text|phone|list)\]/g;
         return sentence.replace(regex, "");
       }
 
@@ -42,17 +42,16 @@ const ChatBubble = ({userId}) => {
                     }
                     else {
                         let weh = getPhoneMarkers(m.content);
-                        if (weh == "") {
+                        if (weh.length == 0) {
                             setMsg(removeMarkers(m.content));
                         }
                         else {
-                            let phone = "+1"+ getPhoneMarkers(m.content);
-                            let text = getTextMarkers(m.content);
+                            let phone = "+1"+ weh[0];
+                            let text = getTextMarkers(m.content)[0];
                             let sending = sendTextMessage(text, phone);
                             setMsg(removeMarkers(m.content));
                         }
-                    }
-                    
+                    }      
                 }
                 else {
                     setMsg("...");
