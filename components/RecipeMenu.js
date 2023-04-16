@@ -16,7 +16,7 @@ const RecipeMenu = ({userId}) => {
     { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_ramen.png' },
     { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_cake.png'},
     { imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_friedrice.png' },
-	{ imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_sushi.png'},
+	{ imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_quiche.png'},
 	{ imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_hamburger.png' },
 	{ imgSrc: 'https://anyonecancook.s3.us-east-2.amazonaws.com/img_steak.png'},
 ];
